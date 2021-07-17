@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style type="text/css">
+        body{
+            background-color: rgb(224, 40, 100);
+            color: black;
+        }
+        #heading{
+            text-align: center;
+            font-size: 100px;
+            line-height: 1px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            position: relative;
+            margin: 0px auto;
+            cursor: pointer;
+            
+        }
+        .left{
+            float: left;
+            transform: translateX(448px);
+        }
+        .right{
+            float: right;
+            transform: translateX(-449px);
+        }
+        .input{
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            margin: 50px auto 50px auto; /* top right bottom left*/
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <p id="heading">Tic Tac Toe</p>
+    <div id="maindiv1">
+        <div>
+            <div class="box left" onclick="clickme('i1')"><p class="input" id="i1"></p></div>
+            <div class="box right" onclick="clickme('i3')"><p class="input" id="i3"></p></div>
+            <div class="box middle" onclick="clickme('i2')"><p class="input" id="i2"></p></div>
+        </div>
+    </div>
+    <div id="maindiv2">
+        <div>
+            <div class="box left" onclick="clickme('i4')"><p class="input" id="i4"></p></div>
+            <div class="box right" onclick="clickme('i6')"><p class="input" id="i6"></p></div>
+            <div class="box middle" onclick="clickme('i5')"><p class="input" id="i5"></p></div>
+        </div>
+    </div>
+    <div id="maindiv3">
+        <div>
+            <div class="box left" onclick="clickme('i7')"><p class="input" id="i7"></p></div>
+            <div class="box right" onclick="clickme('i9')"><p class="input" id="i9"></p></div>
+            <div class="box middle" onclick="clickme('i8')"><p class="input" id="i8"></p></div>
+        </div>
+    </div>    
+</body>
+<script type="text/javascript">
+    var i = 0;
+    var j = 0;
+    function clickme(keyid){
+        if(i == 0){
+            var a = document.getElementById(keyid);
+            a.innerHTML = "X";
+            i = 1;
+        }
+        else if(i == 1){
+            var a = document.getElementById(keyid);
+            a.innerHTML = "O";
+            i = 0;
+        }
+        if((document.getElementById('i1').innerHTML == 'X' && document.getElementById('i2').innerHTML == 'X' && document.getElementById('i3').innerHTML == 'X') || 
+        (document.getElementById('i1').innerHTML == 'O' && document.getElementById('i2').innerHTML == 'O' && document.getElementById('i3').innerHTML == 'O') ||
+        (document.getElementById('i4').innerHTML == 'X' && document.getElementById('i5').innerHTML == 'X' && document.getElementById('i6').innerHTML == 'X') || 
+        (document.getElementById('i4').innerHTML == 'O' && document.getElementById('i5').innerHTML == 'O' && document.getElementById('i6').innerHTML == 'O') ||
+        (document.getElementById('i7').innerHTML == 'X' && document.getElementById('i8').innerHTML == 'X' && document.getElementById('i9').innerHTML == 'X') || 
+        (document.getElementById('i7').innerHTML == 'O' && document.getElementById('i8').innerHTML == 'O' && document.getElementById('i9').innerHTML == 'O') ||
+        (document.getElementById('i1').innerHTML == 'X' && document.getElementById('i4').innerHTML == 'X' && document.getElementById('i7').innerHTML == 'X') || 
+        (document.getElementById('i1').innerHTML == 'O' && document.getElementById('i4').innerHTML == 'O' && document.getElementById('i7').innerHTML == 'O') ||
+        (document.getElementById('i2').innerHTML == 'X' && document.getElementById('i5').innerHTML == 'X' && document.getElementById('i8').innerHTML == 'X') || 
+        (document.getElementById('i2').innerHTML == 'O' && document.getElementById('i5').innerHTML == 'O' && document.getElementById('i8').innerHTML == 'O') ||
+        (document.getElementById('i3').innerHTML == 'X' && document.getElementById('i6').innerHTML == 'X' && document.getElementById('i9').innerHTML == 'X') || 
+        (document.getElementById('i3').innerHTML == 'O' && document.getElementById('i6').innerHTML == 'O' && document.getElementById('i9').innerHTML == 'O') ||
+        (document.getElementById('i1').innerHTML == 'X' && document.getElementById('i5').innerHTML == 'X' && document.getElementById('i9').innerHTML == 'X') || 
+        (document.getElementById('i1').innerHTML == 'O' && document.getElementById('i5').innerHTML == 'O' && document.getElementById('i9').innerHTML == 'O') ||
+        (document.getElementById('i3').innerHTML == 'X' && document.getElementById('i5').innerHTML == 'X' && document.getElementById('i7').innerHTML == 'X') || 
+        (document.getElementById('i3').innerHTML == 'O' && document.getElementById('i5').innerHTML == 'O' && document.getElementById('i7').innerHTML == 'O')
+        ){
+            document.write("YOU WON");
+        }
+        else{
+            j++;
+        }
+        if(j == 9){
+            alert("Tie !!! :(");
+        }
+    }
+</script>
+</html>
